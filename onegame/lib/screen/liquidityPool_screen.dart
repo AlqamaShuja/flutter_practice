@@ -129,106 +129,104 @@ class _LiquidityPoolState extends State<LiquidityPool> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
-          child: Column(
-            children: [
-              const Headers(),
-              Container(
-                margin: const EdgeInsets.only(
-                  top: 30,
-                  bottom: 20,
-                ),
-                alignment: Alignment.topLeft,
-                child: const Text(
-                  "Liquidity Pool",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
+    return SingleChildScrollView(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 25),
+        child: Column(
+          children: [
+            const Headers(),
+            Container(
+              margin: const EdgeInsets.only(
+                top: 30,
+                bottom: 20,
               ),
-              Row(
+              alignment: Alignment.topLeft,
+              child: const Text(
+                "Liquidity Pool",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _imageWithText(
+                  "jam_purple.png",
+                  "56 Gems",
+                  "in your wallet = \$345",
+                ),
+                _verticalLine(80),
+                _imageWithText(
+                  "coin.png",
+                  "425 \$0GI",
+                  "in your wallet = \$345",
+                ),
+                _verticalLine(80),
+                _imageWithText(
+                  "eth_yellow.png",
+                  "4738 ETH",
+                  "in your wallet = \$345",
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 14,
+            ),
+            _horizontalLine(2),
+            Container(
+              // padding: EdgeInsets.symmetric(
+              //   vertical: 20,
+              // ),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _imageWithText(
-                    "jam_purple.png",
-                    "56 Gems",
-                    "in your wallet = \$345",
+                  Text(
+                    "MY GEMS",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  _verticalLine(80),
-                  _imageWithText(
-                    "coin.png",
-                    "425 \$0GI",
-                    "in your wallet = \$345",
-                  ),
-                  _verticalLine(80),
-                  _imageWithText(
-                    "eth_yellow.png",
-                    "4738 ETH",
-                    "in your wallet = \$345",
+                  Container(
+                    width: 180,
+                    child: _dropDownBtn(),
                   ),
                 ],
               ),
-              SizedBox(
-                height: 14,
-              ),
-              _horizontalLine(2),
-              Container(
-                // padding: EdgeInsets.symmetric(
-                //   vertical: 20,
-                // ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "MY GEMS",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+            ),
+            _horizontalLine(2),
+            Container(
+              height: 300,
+              child: GridView(
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent:
+                      MediaQuery.of(context).size.width * 0.5 - 25 - 20,
+                  childAspectRatio: 0.67,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                ),
+                children: allLevels
+                    .map(
+                      (eachLevel) => LevelWithSellAndLevelUp(
+                        levelNo: eachLevel.levelNo,
+                        id: eachLevel.id,
+                        valueInDolloar: eachLevel.valueInDolloar,
+                        valueInOgi: eachLevel.valueInOgi,
+                        imageName: eachLevel.imageName,
+                        color: eachLevel.color,
                       ),
-                    ),
-                    Container(
-                      width: 180,
-                      child: _dropDownBtn(),
-                    ),
-                  ],
-                ),
+                    )
+                    .toList(),
               ),
-              _horizontalLine(2),
-              Container(
-                height: 300,
-                child: GridView(
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent:
-                        MediaQuery.of(context).size.width * 0.5 - 25 - 20,
-                    childAspectRatio: 0.67,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
-                  ),
-                  children: allLevels
-                      .map(
-                        (eachLevel) => LevelWithSellAndLevelUp(
-                          levelNo: eachLevel.levelNo,
-                          id: eachLevel.id,
-                          valueInDolloar: eachLevel.valueInDolloar,
-                          valueInOgi: eachLevel.valueInOgi,
-                          imageName: eachLevel.imageName,
-                          color: eachLevel.color,
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

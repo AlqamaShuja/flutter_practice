@@ -1,0 +1,34 @@
+name: you1
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=2.19.4 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  simple_animations: ^5.0.1
+  page_transition: "^2.0.9"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/one.jpg
+    - assets/images/two.jpg
+    - assets/images/three.jpg
+    - assets/images/four.jpg
+    - assets/images/five.jpg
+    - assets/images/food_main.jpg
+    - assets/images/food1.jpg
+    - assets/images/food2.jpg
+    - assets/images/food3.jpg
+    - assets/images/food4.jpg

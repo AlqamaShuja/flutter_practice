@@ -62,36 +62,37 @@ class StackingScreen extends StatelessWidget {
               ),
             ),
           ),
-          InkWell(
-            onTap: () {},
-            child: Container(
-              margin: const EdgeInsets.only(
-                top: 16,
-                left: 10,
-                right: 10,
+          // InkWell(
+          //   onTap: () {},
+          //   child:
+          Container(
+            margin: const EdgeInsets.only(
+              top: 16,
+              left: 10,
+              right: 10,
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                // colors: [Color.fromRGBO(101, 51, 3, 1.0), Color.fromRGBO(222, 150, 52, 1.0),Color.fromRGBO(152, 79, 4, 1.0),],
+                colors: [
+                  Colors.brown.withOpacity(0.9),
+                  Colors.orange.withOpacity(0.8)
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  // colors: [Color.fromRGBO(101, 51, 3, 1.0), Color.fromRGBO(222, 150, 52, 1.0),Color.fromRGBO(152, 79, 4, 1.0),],
-                  colors: [
-                    Colors.brown.withOpacity(0.9),
-                    Colors.orange.withOpacity(0.8)
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: const Text(
-                "WITHDRAW →",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: const Text(
+              "WITHDRAW →",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
+          // ),
         ],
       ),
     );
@@ -162,68 +163,66 @@ class StackingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-          child: Container(
-        padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Headers(),
-            const SizedBox(
-              height: 26,
-            ),
-            Container(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                "Staking",
-                style: Theme.of(context).textTheme.titleLarge,
-                textAlign: TextAlign.left,
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _jamImageWithText(),
-                _rewardWithDrawBtn(),
-              ],
-            ),
-            _stakeUnstake(context),
-            Container(
-              height: 400,
-              child: GridView(
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent:
-                      MediaQuery.of(context).size.width * 0.5 - 25 - 20,
-                  childAspectRatio: 4 / 4,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                ),
-                children: allLevels
-                    .map(
-                      (eachLevel) => LevelItem(
-                        levelNo: eachLevel.levelNo,
-                        id: eachLevel.id,
-                        valueInDolloar: eachLevel.valueInDolloar,
-                        valueInOgi: eachLevel.valueInOgi,
-                        imageName: eachLevel.imageName,
-                        color: eachLevel.color,
-                      ),
-                    )
-                    .toList(),
-              ),
-            ),
-          ],
-        ),
-      )
-          // Text(
-          //   "Stacking Screen",
-          //   style: Theme.of(context).textTheme.titleLarge,
-          // ),
+    return SingleChildScrollView(
+        child: Container(
+      padding: EdgeInsets.symmetric(horizontal: 25),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Headers(),
+          const SizedBox(
+            height: 26,
           ),
-    );
+          Container(
+            alignment: AlignmentDirectional.centerStart,
+            child: Text(
+              "Staking",
+              style: Theme.of(context).textTheme.titleLarge,
+              textAlign: TextAlign.left,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _jamImageWithText(),
+              _rewardWithDrawBtn(),
+            ],
+          ),
+          _stakeUnstake(context),
+          Container(
+            height: 400,
+            child: GridView(
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent:
+                    MediaQuery.of(context).size.width * 0.5 - 25 - 20,
+                childAspectRatio: 4 / 4,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
+              ),
+              children: allLevels
+                  .map(
+                    (eachLevel) => LevelItem(
+                      levelNo: eachLevel.levelNo,
+                      id: eachLevel.id,
+                      valueInDolloar: eachLevel.valueInDolloar,
+                      valueInOgi: eachLevel.valueInOgi,
+                      imageName: eachLevel.imageName,
+                      color: eachLevel.color,
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+        ],
+      ),
+    )
+        // Text(
+        //   "Stacking Screen",
+        //   style: Theme.of(context).textTheme.titleLarge,
+        // ),
+        );
   }
 }
