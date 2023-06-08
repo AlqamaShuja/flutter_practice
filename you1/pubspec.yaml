@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   simple_animations: ^5.0.1
   page_transition: "^2.0.9"
+  flutter_svg: ^2.0.6
 
 dev_dependencies:
   flutter_test:
@@ -21,14 +22,16 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  assets:
-    - assets/images/one.jpg
-    - assets/images/two.jpg
-    - assets/images/three.jpg
-    - assets/images/four.jpg
-    - assets/images/five.jpg
-    - assets/images/food_main.jpg
-    - assets/images/food1.jpg
-    - assets/images/food2.jpg
-    - assets/images/food3.jpg
-    - assets/images/food4.jpg
+  # assets:
+  #   - assets/images/
+  #   - assets/icons/
+    # - assets/images/one.jpg
+    # - assets/images/two.jpg
+    # - assets/images/three.jpg
+    # - assets/images/four.jpg
+    # - assets/images/five.jpg
+    # - assets/images/food_main.jpg
+    # - assets/images/food1.jpg
+    # - assets/images/food2.jpg
+    # - assets/images/food3.jpg
+    # - assets/images/food4.jpg
